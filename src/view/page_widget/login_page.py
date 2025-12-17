@@ -111,7 +111,7 @@ class LoginPage(QWidget):
     def get_input_params(self) -> dict:
         return {
             "hostname": self.ip_input.text(),
-            "port": self.port_input.text(),
+            "port": self.port_input.text().strip() or 22,
             "username": self.user_input.text(),
             "password": self.password_input.text()
         }

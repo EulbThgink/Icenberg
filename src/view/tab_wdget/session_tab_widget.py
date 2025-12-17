@@ -38,6 +38,9 @@ class SettingDialog(QDialog):
         self.settings = SettingDialog.load_settings()
         # print('loaded settings: ', self.settings)
 
+        self.llm_announcement_label = QLabel(self)
+        self.llm_announcement_label.setText("Only LLM services provided in the local network are supported.")
+        self.llm_announcement_label.setStyleSheet("color: darkred;")
         self.llm_server_label = QLabel(self)
         self.llm_server_label.setText("LLM Server Address:")
         self.llm_server_address_input = QLineEdit(self)
@@ -51,7 +54,7 @@ class SettingDialog(QDialog):
         self.llm_server_port_input.textChanged.connect(self.setting_changed)
 
         self.shell_font_label = QLabel(self)
-        self.shell_font_label.setText("Shell Font(effect after restart):")
+        self.shell_font_label.setText("Shell Font(takes effect in new session):")
         self.shell_font_combobox = QComboBox(self)
         current_font = self.settings.get('font', '')
         self.shell_font_combobox.addItems(FONT_LIST)
@@ -59,7 +62,7 @@ class SettingDialog(QDialog):
         self.shell_font_combobox.currentTextChanged.connect(self.setting_changed)
 
         self.shell_font_size_label = QLabel(self)
-        self.shell_font_size_label.setText("Shell Font Size(effect after restart):")
+        self.shell_font_size_label.setText("Shell Font Size(takes effect in new session):")
         self.shell_font_size_combobox = QComboBox(self)
         self.shell_font_size_combobox.addItems([str(x) for x in FONT_SIZE_RANGE])
         self.shell_font_size_combobox.setCurrentText(str(self.settings.get('font_size', '')))
@@ -81,6 +84,7 @@ class SettingDialog(QDialog):
         layout.addWidget(self.shell_font_size_label)
         layout.addWidget(self.shell_font_size_combobox)
         layout.addSpacing(20)
+        layout.addWidget(self.llm_announcement_label)
         layout.addWidget(self.llm_server_label)
         layout.addWidget(self.llm_server_address_input)
         layout.addWidget(self.llm_server_port_label)
