@@ -4,6 +4,11 @@ Icenberg is an open-source shell tool with real-time, context-aware LLM assistan
 helps troubleshoot issues, and lets you ask questions directly from shell sessions.
 
 ---
+
+### Screenshot \| 界面预览
+![Icenberg UI](images/screenshot.png)
+
+---
 [English](#english) \| [中文说明](#中文说明)
 
 ---
