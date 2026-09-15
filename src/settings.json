@@ -2,5 +2,5 @@
     "llm_server": "localhost",
     "llm_port": 11434,
     "font": "Courier New",
-    "font_size": 12
+    "font_size": 13
 }
